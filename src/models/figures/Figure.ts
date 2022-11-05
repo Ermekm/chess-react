@@ -38,4 +38,8 @@ export class Figure {
     moveFigure(target: Cell) {
         
     }
+
+    public canEat(target: Cell): boolean {
+        return this.canMove(target)
+    }
 }

@@ -33,6 +33,20 @@ export class Pawn extends Figure {
         return false;
     }
 
+    public canEat(target: Cell): boolean {
+        const yDir = this.color === Colors.WHITE ? -1 : 1
+
+        if (target.y === this.cell.y + yDir &&
+            (target.x === this.cell.x + 1 || target.x === this.cell.x - 1)
+        ) {
+            console.log(true)
+            return true;
+        } 
+
+        console.log(target)
+        return false;
+    }
+
     moveFigure(target: Cell): void {
         super.moveFigure(target);
         this.isFirstMove = false;

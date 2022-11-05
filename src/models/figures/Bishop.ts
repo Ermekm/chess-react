@@ -16,5 +16,5 @@ export class Bishop extends Figure {
         if (!super.canMove(target)) return false;
         if (this.cell.isEmptyDiagonal(target)) return true;
         return false;
-    }
+    }  
 }
