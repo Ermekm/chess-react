@@ -3,6 +3,7 @@ import { Board } from '../models/Board';
 import { Cell } from '../models/Cell';
 import { Player } from '../models/Player';
 import CellComponent from './CellComponent';
+import { LostFigures } from './LostFigures';
 
 interface BoardProps {
     board: Board;
