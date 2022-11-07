@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useRef, useState } from 'react'
-import { Colors } from '../models/Colors';
+import { Colors } from '../models/ColorsEnum';
 import { Player } from '../models/Player'
 
 interface TimerProps {

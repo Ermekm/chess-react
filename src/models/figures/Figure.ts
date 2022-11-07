@@ -1,7 +1,7 @@
 import logo from "../../assets/black-king.png"
 
 import { Cell } from "../Cell";
-import { Colors } from "../Colors";
+import { Colors } from "../ColorsEnum";
 
 export enum FigureNames {
     "FIGURE" = "Figure",
@@ -39,7 +39,7 @@ export class Figure {
         
     }
 
-    public canEat(target: Cell): boolean {
+    public canTake(target: Cell): boolean {
         return this.canMove(target)
     }
 }

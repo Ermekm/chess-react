@@ -1,5 +1,5 @@
 import { Cell } from "../Cell";
-import { Colors } from "../Colors";
+import { Colors } from "../ColorsEnum";
 import { Figure, FigureNames } from "./Figure";
 
 import blackLogo from "../../assets/black-pawn.png"
@@ -33,7 +33,7 @@ export class Pawn extends Figure {
         return false;
     }
 
-    public canEat(target: Cell): boolean {
+    public canTake(target: Cell): boolean {
         const yDir = this.color === Colors.WHITE ? -1 : 1
 
         if (target.y === this.cell.y + yDir &&

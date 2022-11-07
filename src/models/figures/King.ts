@@ -1,5 +1,5 @@
 import { Cell } from "../Cell";
-import { Colors } from "../Colors";
+import { Colors } from "../ColorsEnum";
 import { Figure, FigureNames } from "./Figure";
 
 import blackLogo from "../../assets/black-king.png"
@@ -17,7 +17,7 @@ export class King extends Figure {
         for (let i = 0; i < cells.length; i++) {
             const row = cells[i]
             for (let j = 0; j < row.length; j++) {
-                if (cells[i][j].figure && cells[i][j].figure?.color !== this.color && cells[i][j].figure?.canEat(target)) return true;
+                if (cells[i][j].figure && cells[i][j].figure?.color !== this.color && cells[i][j].figure?.canTake(target)) return true;
             }
         }
         return false;

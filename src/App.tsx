@@ -4,7 +4,7 @@ import BoardComponent from './components/BoardComponent';
 import { LostFigures } from './components/LostFigures';
 import { Timer } from './components/Timer';
 import { Board } from './models/Board';
-import { Colors } from './models/Colors';
+import { Colors } from './models/ColorsEnum';
 import { Player } from './models/Player';
 
 function App() {

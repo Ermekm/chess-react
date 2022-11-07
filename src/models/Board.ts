@@ -1,5 +1,5 @@
 import { Cell } from "./Cell";
-import { Colors } from "./Colors";
+import { Colors } from "./ColorsEnum";
 import { Bishop } from "./figures/Bishop";
 import { Figure } from "./figures/Figure";
 import { King } from "./figures/King";

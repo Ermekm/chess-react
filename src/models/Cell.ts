@@ -1,5 +1,5 @@
 import { Board } from "./Board";
-import { Colors } from "./Colors";
+import { Colors } from "./ColorsEnum";
 import { Figure } from "./figures/Figure";
 
 export class Cell {
@@ -82,8 +82,6 @@ export class Cell {
 
         return true;
     }
-
-    
 
     moveFigure(target: Cell) {
         if (this.figure?.canMove(target)) {
