@@ -7,37 +7,37 @@ import whiteLogo from "../../assets/white-pawn.png"
 
 export class Pawn extends Figure {
     isFirstMove: boolean
-    constructor(color: Colors, cell: Cell) {
-        super(color, cell)
+    constructor(color: Colors) {
+        super(color)
         this.logo = color === Colors.BLACK ? blackLogo : whiteLogo
         this.name = FigureNames.PAWN
         this.isFirstMove = true;
     }
 
-    canMove(target: Cell): boolean {
-        if (!super.canMove(target)) return false;
+    canMove(init: Cell, target: Cell): boolean {
+        if (!super.canMove(init, target)) return false;
 
         const yDir = this.color === Colors.WHITE ? -1 : 1
-        const isMovingForward = (target.y - this.cell.y) * yDir > 0
+        const isMovingForward = (target.y - init.y) * yDir > 0
 
-        if (this.cell.x === target.x && isMovingForward && this.cell.board.getCell(target.x, target.y).isEmpty()) {
-            if (this.isFirstMove && Math.abs(this.cell.y - target.y) <= 2) return true;
-            if (!this.isFirstMove && Math.abs(this.cell.y - target.y) <= 1) return true;
+        if (init.x === target.x && isMovingForward && target.isEmpty()) {
+            if (this.isFirstMove && Math.abs(init.y - target.y) <= 2) return true;
+            if (!this.isFirstMove && Math.abs(init.y - target.y) <= 1) return true;
         }
 
-        if (target.y === this.cell.y + yDir &&
-            (target.x === this.cell.x + 1 || target.x === this.cell.x - 1) &&
-            this.cell.isEnemy(target)
+        if (target.y === init.y + yDir &&
+            (target.x === init.x + 1 || target.x === init.x - 1) &&
+            init.isEnemy(target)
         ) return true;
 
         return false;
     }
 
-    public canTake(target: Cell): boolean {
+    public canTake(init: Cell, target: Cell): boolean {
         const yDir = this.color === Colors.WHITE ? -1 : 1
 
-        if (target.y === this.cell.y + yDir &&
-            (target.x === this.cell.x + 1 || target.x === this.cell.x - 1)
+        if (target.y === init.y + yDir &&
+            (target.x === init.x + 1 || target.x === init.x - 1)
         ) {
             console.log(true)
             return true;

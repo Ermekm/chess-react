@@ -41,7 +41,7 @@ export class Board {
             const row = this.cells[i];
             for (let j = 0; j < row.length; j++) {
                 const target = row[j];
-                target.available = !!selectedCell?.figure?.canMove(target)
+                target.available = !!selectedCell?.figure?.canMove(selectedCell, target)
             }
         }
     }
@@ -52,40 +52,40 @@ export class Board {
 
     private addPawns() {
         for (let i = 0; i < 8; i++) {
-            new Pawn(Colors.BLACK, this.getCell(i, 1))
-            new Pawn(Colors.WHITE, this.getCell(i, 6))
+            this.cells[1][i].figure = new Pawn(Colors.BLACK)
+            this.cells[6][i].figure = new Pawn(Colors.WHITE)
         }
     }
 
     private addKings() {
-        new King(Colors.BLACK, this.getCell(4, 0))
-        new King(Colors.WHITE, this.getCell(4, 7))
+        this.cells[0][4].figure = new King(Colors.BLACK)
+        this.cells[7][4].figure = new King(Colors.WHITE)
     }
 
     private addQueens() {
-        new Queen(Colors.BLACK, this.getCell(3, 0))
-        new Queen(Colors.WHITE, this.getCell(3, 7))
+        this.cells[0][3].figure = new Queen(Colors.BLACK)
+        this.cells[7][3].figure = new Queen(Colors.WHITE)
     }
 
     private addBishops() {
-        new Bishop(Colors.BLACK, this.getCell(2, 0))
-        new Bishop(Colors.BLACK, this.getCell(5, 0))
-        new Bishop(Colors.WHITE, this.getCell(2, 7))
-        new Bishop(Colors.WHITE, this.getCell(5, 7))
+        this.cells[0][2].figure = new Bishop(Colors.BLACK)
+        this.cells[0][5].figure = new Bishop(Colors.BLACK)
+        this.cells[7][2].figure = new Bishop(Colors.WHITE)
+        this.cells[7][5].figure = new Bishop(Colors.WHITE)
     }
 
     private addKnights() {
-        new Knight(Colors.BLACK, this.getCell(1, 0))
-        new Knight(Colors.BLACK, this.getCell(6, 0))
-        new Knight(Colors.WHITE, this.getCell(1, 7))
-        new Knight(Colors.WHITE, this.getCell(6, 7))
+        this.cells[0][1].figure = new Knight(Colors.BLACK)
+        this.cells[0][6].figure = new Knight(Colors.BLACK)
+        this.cells[7][1].figure = new Knight(Colors.WHITE)
+        this.cells[7][6].figure = new Knight(Colors.WHITE)
     }
 
     private addRooks() {
-        new Rook(Colors.BLACK, this.getCell(0, 0))
-        new Rook(Colors.BLACK, this.getCell(7, 0))
-        new Rook(Colors.WHITE, this.getCell(0, 7))
-        new Rook(Colors.WHITE, this.getCell(7, 7))
+        this.cells[0][0].figure = new Rook(Colors.BLACK)
+        this.cells[0][7].figure = new Rook(Colors.BLACK)
+        this.cells[7][0].figure = new Rook(Colors.WHITE)
+        this.cells[7][7].figure = new Rook(Colors.WHITE)
     }
 
     public addFigures() {

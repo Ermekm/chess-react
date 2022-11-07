@@ -1,0 +1,1 @@
+export const BLACK_PAWN_POSITION = 1
